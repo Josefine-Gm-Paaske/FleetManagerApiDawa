@@ -75,8 +75,6 @@
                     type: 'GET',
                     success: function (result) {
                         $('#city').val(result.navn);
-                        $('#city').addClass('alert-success');
-                        console.log(result.navn)
                     },
                     error: function (error) {
                         if (error.status === 404) {
@@ -84,8 +82,7 @@
                         }
                         else {
                             $('#city').val(error.statusText);
-                        }
-                        $('#city').addClass('alert-danger');
+                        }                        
                     }
                 });
             });
