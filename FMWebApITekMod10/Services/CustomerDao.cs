@@ -15,9 +15,9 @@ namespace FMWebApITekMod10.Services
 
         public bool AddCustomer(Customers customer)
         {
-            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = FleetManager; Integrated Security = True; Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            bool success = false;
-            string sqlStatement = "INSERT INTO dbo.Customers (FirstName, LastName, Adress, Zip, City) VALUES (@FirstName, @LastName, @Adress, @Zip, @City)";
+            string connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = FleetManager; Integrated Security = True";
+                bool success = false;
+            string sqlStatement = "INSERT INTO dbo.Customers (FirstName, LastName, Address, Zip, City) VALUES (@FirstName, @LastName, @Address, @Zip, @City)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

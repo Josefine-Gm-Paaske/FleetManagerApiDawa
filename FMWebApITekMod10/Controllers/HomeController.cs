@@ -1,4 +1,5 @@
 ﻿using FMWebApITekMod10.Models;
+using FMWebApITekMod10.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,6 +27,13 @@ namespace FMWebApITekMod10.Controllers
         public IActionResult CustomerInformation()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CustomerInformationPost(Customers model)
+        {
+            new CustomerDao().AddCustomer(model);
+            return View("CustomerInformation");
         }
 
         public IActionResult Privacy()

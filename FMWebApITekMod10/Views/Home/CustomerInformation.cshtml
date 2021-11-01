@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CustomerInformation">
+        <form asp-action="CustomerInformationPost" method="post"> 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label asp-for="City" class="control-label"></label>
-
+                <input asp-for="City" class="form-control" id="city" readonly ="readonly" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
 
@@ -76,6 +76,7 @@
                     type: 'GET',
                     success: function (result) {
                         $('#result').val(result.navn);
+                        $('#city').val(result.navn);
                         //$('#result').addClass('alert-success');
                         console.log(result.navn)
                     },
