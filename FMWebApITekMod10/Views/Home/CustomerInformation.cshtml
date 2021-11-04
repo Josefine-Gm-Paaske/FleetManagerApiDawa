@@ -46,8 +46,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-        </form>
-        <input id="result" disabled /> <button class="btn btn-primary" id="search"> Find City </button>
+        </form>       
     </div>
 </div>
 
@@ -64,7 +63,7 @@
     <script>
         $(document).ready(function () {
 
-            $('#search').click(function () {
+            $('#zip').focusout(function () {
 
                 var zip = $('#zip').val();
                 var uri = "https://dawa.aws.dk/postnumre/";
@@ -75,22 +74,18 @@
                     url: uri + zip,
                     type: 'GET',
                     success: function (result) {
-                        $('#result').val(result.navn);
                         $('#city').val(result.navn);
-                        //$('#result').addClass('alert-success');
-                        console.log(result.navn)
                     },
                     error: function (error) {
                         if (error.status === 404) {
-                            $('#result').text('Zip code not found');
+                            $('#city').val('Zip code not found');
                         }
                         else {
-                            $('#result').text(error.statusText);
-                        }
-                       // $('#result').addClass('alert-danger');
+                            $('#city').val(error.statusText);
+                        }                        
                     }
                 });
             });
         });
-                   </script>
+    </script>
 }
